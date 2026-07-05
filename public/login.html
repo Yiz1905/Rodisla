@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso - Rodisla</title>
+    <link rel="stylesheet" href="css/diseñoLogin.css">
+</head>
+<body>
+    <main class="login-card">
+        <a class="close-login" href="index.html" aria-label="Cerrar login">x</a>
+        <div class="login-brand">
+            <img src="imagenes/rodislaLogo.jpeg" alt="Logo Rodisla" />
+            <div>
+                <h1 class="login-title">Bienvenido a RODISLA</h1>
+                <p class="login-subtitle">Portal de Gestión Industrial de Rodamientos</p>
+            </div>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label class="field-label" for="email">Email / Usuario</label>
+                <div class="input-wrapper" data-icon="👤">
+                    <input class="input-field" type="email" id="email" name="email" placeholder="ejemplo@rodisla.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="login-row">
+                    <label class="field-label" for="password">Contraseña</label>
+                    <a href="#">¿Olvidó su clave?</a>
+                </div>
+                <div class="input-wrapper" data-icon="🔒">
+                    <input class="input-field" type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <label class="checkbox-group">
+                <input type="checkbox" name="remember">
+                Mantener mi sesión iniciada
+            </label>
+
+            <button class="login-button" type="submit">INGRESAR →</button>
+        </form>
+
+        <div class="login-footer">
+            ¿No tienes una cuenta? Contacta con el administrador.
+        </div>
+    </main>
+</body>
+</html>

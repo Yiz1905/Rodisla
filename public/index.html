@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodisla</title>
+    <link rel="stylesheet" href="css/diseñoMain.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="#" class="logo">
+                <span class="logo-icon">R</span>
+                <span>Rodisla</span>
+            </a>
+            <a href="#" class="nav-link">Rodamientos</a>
+        </div>
+
+        <form class="search-form" action="#" method="get">
+            <input class="search-input" type="search" name="q" placeholder="Buscar productos..." />
+            <button class="search-button" type="submit">Buscar</button>
+        </form>
+
+        <div class="header-right header-action">
+            <button class="cart-button" type="button">
+                <span>🛒</span>
+                <span>Carrito</span>
+            </button>
+            <a href="./login.html">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <section class="sidebar-section">
+                <div class="sidebar-title">Categorias</div>
+                <ul class="category-list">
+                    <li class="category-item active">
+                        <span>Rodamientos</span>
+                        <span>›</span>
+                    </li>
+                    <li class="category-item">
+                        <span>Ofertas</span>
+                        <span>›</span>
+                    </li>
+                    <li class="category-item">
+                        <span>Automotriz</span>
+                        <span>›</span>
+                    </li>
+                    <li class="category-item">
+                        <span>Industrial</span>
+                        <span>›</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section">
+                <div class="sidebar-title">Filtros</div>
+                <div class="filter-item">
+                    <label class="filter-label" for="brand-select">Marca</label>
+                    <select id="brand-select" class="filter-select">
+                        <option>Todas las marcas</option>
+                        <option>Marca A</option>
+                        <option>Marca B</option>
+                    </select>
+                </div>
+
+                <div class="filter-item" style="flex-direction: column; align-items: stretch;">
+                    <label class="filter-label" for="diameter-range">Diametro Interno</label>
+                    <input id="diameter-range" class="filter-range" type="range" min="0" max="100" value="45" />
+                </div>
+            </section>
+        </aside>
+
+        <main class="main-content">
+            <div class="catalog-header">
+                <div>
+                    <p class="breadcrumb">Catalogo / Rodamientos</p>
+                    <h1 class="main-title">Catalogo de Rodamientos</h1>
+                </div>
+                <div class="catalog-actions">
+                    <span class="catalog-show">Show: <strong>20</strong></span>
+                    <button class="icon-button" type="button" aria-label="Grid view">▢</button>
+                    <button class="icon-button" type="button" aria-label="List view">≡</button>
+                </div>
+            </div>
+
+            <div class="catalog-grid">
+                <article class="catalog-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/360x260?text=Rodamiento+1" alt="Rodamiento 6205-2RSH" />
+                        <span class="card-badge">Disponible</span>
+                    </div>
+                    <div class="card-body">
+                        <small class="card-brand">SKF Industrial</small>
+                        <h2 class="card-title">Rodamiento de Bolas 6205-2RSH</h2>
+                        <p class="card-ref">REF: 6205-2RS-C3</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">$12.45 USD</span>
+                        <button class="cart-icon" type="button" aria-label="Agregar al carrito">🛒</button>
+                    </div>
+                </article>
+
+                <article class="catalog-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/360x260?text=Rodamiento+2" alt="Rodamiento NJ 205 ECP" />
+                    </div>
+                    <div class="card-body">
+                        <small class="card-brand">NSK Premium</small>
+                        <h2 class="card-title">Rodamiento Cilíndrico NJ 205 ECP</h2>
+                        <p class="card-ref">REF: NJ205ECP</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">$45.90 USD</span>
+                        <button class="cart-icon" type="button" aria-label="Agregar al carrito">🛒</button>
+                    </div>
+                </article>
+
+                <article class="catalog-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/360x260?text=Rodamiento+3" alt="Rodamiento Cónico 30204 Set" />
+                    </div>
+                    <div class="card-body">
+                        <small class="card-brand">Timken USA</small>
+                        <h2 class="card-title">Cónico 30204 Set Rodamiento</h2>
+                        <p class="card-ref">REF: 30204-J2/Q</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">$18.20 USD</span>
+                        <button class="cart-icon" type="button" aria-label="Agregar al carrito">🛒</button>
+                    </div>
+                </article>
+
+                <article class="catalog-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/360x260?text=Rodamiento+4" alt="Rodamiento 6308-C3 Radial" />
+                    </div>
+                    <div class="card-body">
+                        <small class="card-brand">FAG Germany</small>
+                        <h2 class="card-title">Rodamiento 6308-C3 Radial</h2>
+                        <p class="card-ref">REF: 6308-C3</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">$32.00 USD</span>
+                        <button class="cart-icon" type="button" aria-label="Agregar al carrito">🛒</button>
+                    </div>
+                </article>
+
+                <article class="catalog-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/360x260?text=Rodamiento+5" alt="Rodamiento Axil 51105" />
+                    </div>
+                    <div class="card-body">
+                        <small class="card-brand">Koyo Japan</small>
+                        <h2 class="card-title">Rodamiento Axil 51105</h2>
+                        <p class="card-ref">REF: 51105-K0Y0</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-price">$15.75 USD</span>
+                        <button class="cart-icon" type="button" aria-label="Agregar al carrito">🛒</button>
+                    </div>
+                </article>
+            </div>
+
+            <nav class="catalog-pagination">
+                <button class="pagination-button" type="button">←</button>
+                <button class="pagination-button active" type="button">1</button>
+                <button class="pagination-button" type="button">2</button>
+                <button class="pagination-button" type="button">3</button>
+                <span class="pagination-ellipsis">…</span>
+                <button class="pagination-button" type="button">12</button>
+                <button class="pagination-button" type="button">→</button>
+            </nav>
+        </main>
+    </div>
+</body>
+</html>
