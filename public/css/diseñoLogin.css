@@ -6,26 +6,37 @@
     --muted: #6b6b6b;
     --primary: #b5521d;
     --primary-dark: #8a3f14;
+    --primary-soft: #fff5ed;
     --shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
 }
 
 * {
     box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
     font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-    background: linear-gradient(180deg, #faf7f3 0%, #f0e8df 100%);
+    background: url('../Imagenes/loginFondo.png') center / cover no-repeat fixed;
     color: var(--text);
     display: grid;
     place-items: center;
     padding: 32px;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.50);
+    z-index: 0;
+}
+
 .login-card {
     position: relative;
+    z-index: 1;
     width: min(440px, 100%);
     background: var(--surface);
     border: 1px solid rgba(181, 82, 29, 0.18);
@@ -124,6 +135,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 14px;
     background: #fcfaf8;
+    font-family: inherit;
     font-size: 1rem;
     color: var(--text);
 }
@@ -170,6 +182,7 @@ body {
     padding: 16px;
     background: var(--primary);
     color: white;
+    font-family: inherit;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -183,10 +196,35 @@ body {
 .login-footer {
     margin-top: 24px;
     border-top: 1px solid rgba(181, 82, 29, 0.14);
-    padding-top: 18px;
+    padding-top: 20px;
     text-align: center;
-    color: var(--text-muted);
+}
+
+.register-text {
+    margin: 0 0 14px;
+    color: var(--muted);
     font-size: 0.95rem;
+}
+
+.register-button {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--primary);
+    border-radius: 16px;
+    background: transparent;
+    color: var(--primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: all 0.2s ease;
+}
+
+.register-button:hover {
+    background: var(--primary-soft);
+    transform: translateY(-1px);
 }
 
 @media (max-width: 520px) {

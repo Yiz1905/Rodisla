@@ -10,11 +10,13 @@ const rodamientosRoutes = require('./routes/rodamientos');
 const authRoutes = require('./routes/auth');
 const carritoRoutes = require('./routes/carrito');
 const ordenesRoutes = require('./routes/ordenes');
+const adminRoutes = require('./routes/admin');
 
 app.use('/api', rodamientosRoutes);
 app.use('/api', authRoutes);
 app.use('/api', carritoRoutes);
 app.use('/api', ordenesRoutes);
+app.use('/api', adminRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Servidor en http://localhost:${process.env.PORT}`);

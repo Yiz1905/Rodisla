@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso - Rodisla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/diseñoLogin.css">
-    <script src="js/login.js"></script>
 </head>
 <body>
     <main class="login-card">
         <a class="close-login" href="index.html" aria-label="Cerrar login">x</a>
         <div class="login-brand">
-            <img src="imagenes/rodislaLogo.jpeg" alt="Logo Rodisla" />
+            <img src="Imagenes/rodislaLogo.jpeg" alt="Logo Rodisla" />
             <div>
                 <h1 class="login-title">Bienvenido a RODISLA</h1>
                 <p class="login-subtitle">Portal de Gestión Industrial de Rodamientos</p>
@@ -45,8 +47,11 @@
         </form>
 
         <div class="login-footer">
-            ¿No tienes una cuenta? Contacta con el administrador.
+            <p class="register-text">¿No tienes una cuenta?</p>
+            <a href="registro.html" class="register-button">CREAR CUENTA</a>
         </div>
     </main>
+    <script src="js/login.js"></script>
+    <script src="js/sesion.js"></script>
 </body>
 </html>

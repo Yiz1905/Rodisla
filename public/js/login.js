@@ -19,7 +19,13 @@ document.querySelector('form').addEventListener('submit', async e => {
     }
 
     localStorage.setItem('usuario', JSON.stringify(data));
-    window.location.href = 'index.html';
+
+    // Admin y empleado van al panel admin
+    if (data.rol === 'admin' || data.rol === 'empleado') {
+      window.location.href = 'admin.html';
+    } else {
+      window.location.href = 'index.html';
+    }
   } catch (err) {
     mostrarError('Error de conexión con el servidor');
   }

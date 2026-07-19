@@ -72,6 +72,22 @@ router.post('/ordenes', async (req, res) => {
   }
 });
 
+// GET /api/ordenes/detalle/:orden_id - Detalle de una orden específica
+router.get('/ordenes/detalle/:orden_id', async (req, res) => {
+  try {
+    const [detalle] = await pool.query(
+      `SELECT d.*, r.nombre, r.codigo, r.imagen
+       FROM detalle_ordenes d
+       JOIN rodamientos r ON d.producto_id = r.id
+       WHERE d.pedido_id = ?`,
+      [req.params.orden_id]
+    );
+    res.json(detalle);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // GET /api/ordenes/:usuario_id - Historial de órdenes de un usuario
 router.get('/ordenes/:usuario_id', async (req, res) => {
   try {
@@ -84,22 +100,6 @@ router.get('/ordenes/:usuario_id', async (req, res) => {
       [req.params.usuario_id]
     );
     res.json(rows);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// GET /api/ordenes/detalle/:orden_id - Detalle de una orden específica
-router.get('/ordenes/detalle/:orden_id', async (req, res) => {
-  try {
-    const [detalle] = await pool.query(
-      `SELECT d.*, r.nombre, r.codigo, r.imagen
-       FROM detalle_ordenes d
-       JOIN rodamientos r ON d.producto_id = r.id
-       WHERE d.pedido_id = ?`,
-      [req.params.orden_id]
-    );
-    res.json(detalle);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

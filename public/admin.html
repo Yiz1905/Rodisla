@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Rodisla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+        <div class="admin-sidebar-header">
+            <span class="admin-logo">R</span>
+            <div>
+                <h2 class="admin-brand">Rodisla</h2>
+                <span class="admin-role-badge" id="admin-role-badge">Admin</span>
+            </div>
+        </div>
+
+        <nav class="admin-nav">
+            <ul class="admin-nav-menu">
+                <li class="admin-nav-item active" data-section="dashboard">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="rodamientos">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">⚙️</span>
+                        <span>Rodamientos</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="clientes">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">👥</span>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="carritos">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">🛒</span>
+                        <span>Carritos</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="pedidos">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">📋</span>
+                        <span>Pedidos</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="facturas">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">🧾</span>
+                        <span>Facturas</span>
+                    </a>
+                </li>
+                <li class="admin-nav-divider"></li>
+                <li class="admin-nav-item" data-section="proveedores">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">🏭</span>
+                        <span>Proveedores</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="orden-compra">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">📑</span>
+                        <span>Orden de Compra</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item" data-section="facturas-proveedor">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">📄</span>
+                        <span>Facturas Proveedor</span>
+                    </a>
+                </li>
+                <li class="admin-nav-divider"></li>
+                <li class="admin-nav-item" data-section="usuarios">
+                    <a href="#" class="admin-nav-link">
+                        <span class="admin-nav-icon">🔑</span>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="admin-sidebar-footer">
+            <a href="index.html" class="admin-back-link">
+                <span>←</span>
+                <span>Volver al Catálogo</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="admin-main">
+        <!-- TOP BAR -->
+        <header class="admin-topbar">
+            <button class="admin-menu-toggle" id="menu-toggle">☰</button>
+            <h1 class="admin-page-title" id="page-title">Dashboard</h1>
+            <div class="admin-topbar-right">
+                <span class="admin-user-name" id="admin-user-name">Admin</span>
+                <button class="admin-logout-btn" id="logout-btn">Salir</button>
+            </div>
+        </header>
+
+        <!-- CONTENT SECTIONS -->
+        <div class="admin-content">
+
+            <!-- ==================== DASHBOARD ==================== -->
+            <section class="admin-section active" id="section-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background:#fff5ed; color:#b5521d;">📦</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-productos">0</span>
+                            <span class="stat-label">Productos</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background:#e8f5e9; color:#2e7d32;">📋</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-pedidos">0</span>
+                            <span class="stat-label">Pedidos</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background:#e3f2fd; color:#1565c0;">👥</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-clientes">0</span>
+                            <span class="stat-label">Clientes</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background:#fce4ec; color:#c62828;">💰</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-ventas">$0</span>
+                            <span class="stat-label">Ventas Totales</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Pedidos Recientes</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Cliente</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-pedidos"></tbody>
+                        </table>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Actividad Reciente</h3>
+                        <div class="activity-list" id="dashboard-actividad"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== RODAMIENTOS ==================== -->
+            <section class="admin-section" id="section-rodamientos">
+                <div class="section-header">
+                    <h2>Gestión de Rodamientos</h2>
+                    <button class="btn btn-primary" onclick="AdminApp.openModal('rodamiento')">+ Nuevo Rodamiento</button>
+                </div>
+                <div class="table-filters">
+                    <input type="search" class="table-search" id="search-rodamientos" placeholder="Buscar por nombre o código...">
+                    <select class="table-select" id="filter-cat-rodamientos">
+                        <option value="">Todas las categorías</option>
+                        <option value="Rodamientos">Rodamientos</option>
+                        <option value="Automotriz">Automotriz</option>
+                        <option value="Industrial">Industrial</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Código</th>
+                                <th>Marca</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-rodamientos"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== CLIENTES ==================== -->
+            <section class="admin-section" id="section-clientes">
+                <div class="section-header">
+                    <h2>Clientes</h2>
+                </div>
+                <div class="table-filters">
+                    <input type="search" class="table-search" id="search-clientes" placeholder="Buscar por nombre o email...">
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-clientes"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== CARRITOS ==================== -->
+            <section class="admin-section" id="section-carritos">
+                <div class="section-header">
+                    <h2>Carritos de Clientes</h2>
+                </div>
+                <div class="table-filters">
+                    <select class="table-select" id="filter-usuario-carrito">
+                        <option value="">Seleccionar cliente...</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="AdminApp.verCarrito()">Ver Carrito</button>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Código</th>
+                                <th>Precio Unit.</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-carritos"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== PEDIDOS ==================== -->
+            <section class="admin-section" id="section-pedidos">
+                <div class="section-header">
+                    <h2>Gestión de Pedidos</h2>
+                </div>
+                <div class="table-filters">
+                    <input type="search" class="table-search" id="search-pedidos" placeholder="Buscar por ID de orden...">
+                    <select class="table-select" id="filter-estado-pedidos">
+                        <option value="">Todos los estados</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en_proceso">En Proceso</option>
+                        <option value="entregado">Entregado</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th># Orden</th>
+                                <th>Cliente ID</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Pago</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-pedidos"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== FACTURAS ==================== -->
+            <section class="admin-section" id="section-facturas">
+                <div class="section-header">
+                    <h2>Facturas</h2>
+                </div>
+                <div class="table-filters">
+                    <select class="table-select" id="filter-estado-facturas">
+                        <option value="">Todos los estados</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="pagado">Pagado</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th># Factura</th>
+                                <th>Orden ID</th>
+                                <th>Método</th>
+                                <th>Monto</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-facturas"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== PROVEEDORES ==================== -->
+            <section class="admin-section" id="section-proveedores">
+                <div class="section-header">
+                    <h2>Proveedores</h2>
+                    <button class="btn btn-primary" onclick="AdminApp.openModal('proveedor')">+ Nuevo Proveedor</button>
+                </div>
+                <div class="table-filters">
+                    <input type="search" class="table-search" id="search-proveedores" placeholder="Buscar proveedor...">
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Contacto</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Dirección</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-proveedores"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== ORDEN DE COMPRA ==================== -->
+            <section class="admin-section" id="section-orden-compra">
+                <div class="section-header">
+                    <h2>Órdenes de Compra</h2>
+                    <button class="btn btn-primary" onclick="AdminApp.openModal('orden-compra')">+ Nueva Orden</button>
+                </div>
+                <div class="table-filters">
+                    <select class="table-select" id="filter-estado-oc">
+                        <option value="">Todos los estados</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="aprobada">Aprobada</option>
+                        <option value="recibida">Recibida</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th># OC</th>
+                                <th>Proveedor</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-orden-compra"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== FACTURAS PROVEEDOR ==================== -->
+            <section class="admin-section" id="section-facturas-proveedor">
+                <div class="section-header">
+                    <h2>Facturas de Proveedores</h2>
+                    <button class="btn btn-primary" onclick="AdminApp.openModal('factura-proveedor')">+ Nueva Factura</button>
+                </div>
+                <div class="table-filters">
+                    <select class="table-select" id="filter-estado-fp">
+                        <option value="">Todos los estados</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="pagada">Pagada</option>
+                        <option value="vencida">Vencida</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th># Factura</th>
+                                <th>Proveedor</th>
+                                <th>Orden Compra</th>
+                                <th>Monto</th>
+                                <th>Estado</th>
+                                <th>Vencimiento</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-facturas-proveedor"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== USUARIOS ==================== -->
+            <section class="admin-section" id="section-usuarios">
+                <div class="section-header">
+                    <h2>Gestión de Usuarios</h2>
+                    <button class="btn btn-primary" onclick="AdminApp.openModal('usuario')">+ Nuevo Usuario</button>
+                </div>
+                <div class="table-filters">
+                    <input type="search" class="table-search" id="search-usuarios" placeholder="Buscar usuario...">
+                    <select class="table-select" id="filter-rol-usuarios">
+                        <option value="">Todos los roles</option>
+                        <option value="admin">Admin</option>
+                        <option value="empleado">Empleado</option>
+                        <option value="cliente">Cliente</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-usuarios"></tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="admin-modal-overlay" id="modal-overlay">
+        <div class="admin-modal" id="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Nuevo Registro</h3>
+                <button class="modal-close" onclick="AdminApp.closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic form content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="admin-toast" id="toast"></div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

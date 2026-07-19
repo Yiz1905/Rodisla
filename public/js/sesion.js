@@ -1,6 +1,10 @@
 // --- Obtener usuario logueado ---
 function getUsuario() {
-  return JSON.parse(localStorage.getItem('usuario'));
+  try {
+    return JSON.parse(localStorage.getItem('usuario'));
+  } catch (error) {
+    return null;
+  }
 }
 
 // --- Actualizar estado de sesión en el header ---
@@ -8,22 +12,29 @@ function actualizarSesion() {
   const usuario = getUsuario();
   const headerRight = document.querySelector('.header-right');
 
-  const loginItem = headerRight?.querySelector('a');
-  if (loginItem) loginItem.remove();
+  if (!headerRight) return;
 
-  const sesionItem = document.createElement(usuario ? 'button' : 'a');
-  sesionItem.className = usuario ? '' : 'header-link';
-  sesionItem.href = usuario ? '#' : './login.html';
+  let sesionItem = headerRight.querySelector('.login-link');
 
-  if (usuario) {
-    sesionItem.textContent = `Cerrar sesión (${usuario.nombre})`;
-    sesionItem.addEventListener('click', () => {
-      localStorage.removeItem('usuario');
-      window.location.reload();
-    });
+  if (!sesionItem) {
+    sesionItem = document.createElement('a');
+    sesionItem.className = 'login-link';
+    headerRight.appendChild(sesionItem);
   }
 
-  headerRight?.appendChild(sesionItem);
+  if (usuario) {
+    sesionItem.href = '#';
+    sesionItem.textContent = `Cerrar sesión (${usuario.nombre || usuario.email || 'usuario'})`;
+    sesionItem.onclick = (event) => {
+      event.preventDefault();
+      localStorage.removeItem('usuario');
+      window.location.reload();
+    };
+  } else {
+    sesionItem.href = './login.html';
+    sesionItem.textContent = 'Iniciar Sesión';
+    sesionItem.onclick = null;
+  }
 }
 
 actualizarSesion();
